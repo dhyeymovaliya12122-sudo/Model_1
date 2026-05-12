@@ -1,1 +1,110 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comprehensive Registration Form</title>
+</head>
+<body>
+
+    <h2>Complete Your Profile</h2>
+
+    <form action="/submit-form" method="POST" enctype="multipart/form-data">
+        
+        <fieldset>
+            <legend>Account Security</legend>
+            <p>
+                <label for="fname">Full Name:</label><br>
+                <input type="text" id="fname" name="fullname" placeholder="John Doe" required>
+            </p>
+            <p>
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email" required>
+            </p>
+            <p>
+                <label for="pwd">Password:</label><br>
+                <input type="password" id="pwd" name="password" minlength="8" required>
+            </p>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Personal Details</legend>
+            <p>
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890">
+            </p>
+            <p>
+                <label for="dob">Date of Birth:</label><br>
+                <input type="date" id="dob" name="dob">
+            </p>
+            <p>
+                <label>Gender:</label><br>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </p>
+            <p>
+                <label for="country">Country of Residence:</label><br>
+                <select id="country" name="country">
+                    <option value="">--Select a Country--</option>
+                    <option value="usa">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="india">India</option>
+                    <option value="canada">Canada</option>
+                </select>
+            </p>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>About You & Files</legend>
+            <p>
+                <label for="bio">Short Bio:</label><br>
+                <textarea id="bio" name="bio" rows="4" cols="40" placeholder="Tell us about yourself..."></textarea>
+            </p>
+            <p>
+                <label for="profile_pic">Upload Profile Picture:</label><br>
+                <input type="file" id="profile_pic" name="profile_pic" accept="image/*">
+            </p>
+            <p>
+                <label for="resume">Upload Resume (PDF):</label><br>
+                <input type="file" id="resume" name="resume" accept=".pdf">
+            </p>
+            <p>
+                <label>Interests:</label><br>
+                <input type="checkbox" id="coding" name="interest" value="coding">
+                <label for="coding">Coding</label>
+                <input type="checkbox" id="music" name="interest" value="music">
+                <label for="music">Music</label>
+                <input type="checkbox" id="gaming" name="interest" value="gaming">
+                <label for="gaming">Gaming</label>
+            </p>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Verification & Agreement</legend>
+            <p>
+                <code>X 8 R 2 Q</code><br>
+                <input type="text" name="captcha_input" placeholder="Type the code" required>
+            </p>
+            <p>
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <strong>Terms and Conditions</strong></label>
+            </p>
+            <p>
+                <input type="submit" value="Get Started">
+                <input type="reset" value="Clear Form">
+            </p>
+        </fieldset>
+
+    </form>
+
+</body>
+</html>
