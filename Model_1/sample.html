@@ -14,7 +14,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-
         form {
             background: white;
             padding: 40px;
@@ -37,16 +36,16 @@
             color: #555;
         }
 
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box; 
-        }
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
 
         input[type="submit"] {
             width: 100%;
@@ -67,33 +66,31 @@
 </head>
 <body>
 
-    <form action="#">
-            <legend>User Information</legend>
-            
-            <br>
-            <label for="name">name:</label><br>
-            <input type="text" id="name" name="name" placeholder="Enter name" required>
-            
-            <br><br>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required>
-            <br><br>
-            
-            <label for="pwd">Password:</label><br>
-            <input type="password" id="pwd" name="pwd" required>
-            
-            <br><br>
-            
-            <label>Gender:</label><br>
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label>
-            
-            <br><br>
-
-
+   <form action="#">
+    <fieldset style="border: none; padding: 0; margin: 0;">
+        <legend style="font-weight: bold; font-size: 1.2rem;">User Information</legend>
+        
+        <br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        
+        <label for="pwd">Password:</label><br>
+        <input type="password" id="pwd" name="pwd" required>
+        
+        <br><br>
+        
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        
+        <br><br>
+        
+        
         <input type="submit" value="Get Started">
+    </fieldset>
     </form>
 
 </body>
