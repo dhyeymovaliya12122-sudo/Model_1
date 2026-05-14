@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Auto | Luxury Vehicle Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Main Layout Styles */
+        .details-container { display: flex; gap: 2rem; flex-wrap: wrap; background: #fff; padding: 2rem; border-radius: 8px; }
+        .details-image { flex: 1; min-width: 300px; background:#ddd; height: 380px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 1.2rem; text-align: center; padding: 1rem; }
+        .details-info { flex: 1; min-width: 300px; }
+        .specs { list-style: none; margin: 1.5rem 0; padding: 0; }
+        .specs li { padding: 0.6rem 0; border-bottom: 1px solid #eee; font-size: 1rem; }
+        .details-info .price { color: #d35400; font-weight: bold; font-size: 2rem; margin: 0.5rem 0; }
+        .ex-showroom { font-size: 0.9rem; color: #7f8c8d; font-weight: normal; }
+
+        /* Related Models Grid */
+        .related-products { margin-top: 4rem; }
+        .related-products h3 { font-size: 1.8rem; margin-bottom: 1.5rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+        
+        .product-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        .product-card { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card-image { background: #ddd; height: 160px; border-radius: 6px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: #666; font-weight: 500; font-size: 0.9rem; padding: 0.5rem; }
+        .product-card h4 { margin: 0.5rem 0; font-size: 1.1rem; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+        .product-card .price { color: #d35400; font-weight: bold; font-size: 1.1rem; margin-bottom: 1rem; }
+        
+        /* Action Buttons */
+        .btn-booking { background: #d35400; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 4px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn-whatsapp { background: #25D366; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 4px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; margin-left: 0.5rem; }
+        .btn-view { background: #34495e; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; display: inline-block; margin-bottom: 0.5rem; font-size: 0.9rem; cursor: pointer; }
+        .btn-view:hover { background: #2c3e50; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Premium Auto</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="showroom.html">Showroom</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cart.html">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="details-container">
+            <div class="details-image" id="main-image">
+                Pagani Huayra Imola Roadster Image
+            </div>
+            <div class="details-info">
+                <h2 id="main-title">Pagani Huayra Imola Roadster</h2>
+                <p class="price" id="main-price">₹45.00 Crore <span class="ex-showroom">(Ex-Showroom Price)</span></p>
+                <p id="main-desc">Experience the absolute pinnacle of Italian automotive artistry. An ultra-rare, track-focused open-top hypercar engineered for elite enthusiasts who demand unmatched performance and bespoke luxury.</p>
+                
+                <ul class="specs" id="main-specs">
+                    <li><strong>Engine:</strong> 6.0L Twin-Turbo V12 (Mercedes-AMG)</li>
+                    <li><strong>Max Power:</strong> 850 BHP</li>
+                    <li><strong>0-100 km/h:</strong> 2.9 seconds</li>
+                    <li><strong>Transmission:</strong> 7-Speed Automated Manual</li>
+                    <li><strong>Top Speed:</strong> 350 km/h</li>
+                </ul>
+
+                <button class="btn-booking" onclick="alert('Our relationship manager will contact you shortly for custom configurations and allocation availability!')">Pay Booking Amount</button>
+                <a href="https://wa.me/919999999999" target="_blank" class="btn-whatsapp">Inquire via WhatsApp</a>
+            </div>
+        </div>
+
+        <hr style="border: 0; height: 1px; background: #eee; margin: 3rem 0;">
+
+        <section class="related-products">
+            <h3>Explore Our Full Fleet</h3>
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <div class="product-card-image">Pagani Imola Image</div>
+                    <h4>Pagani Huayra Imola Roadster</h4>
+                    <p class="price">₹45.00 Cr</p>
+                    <button class="btn-view" onclick="updateVehicle(0)">View Details</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-image">La Rose Noire Image</div>
+                    <h4>Rolls-Royce La Rose Noire Droptail</h4>
+                    <p class="price">₹211.00 Cr</p>
+                    <button class="btn-view" onclick="updateVehicle(1)">View Details</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-image">Zonda HP Barchetta Image</div>
+                    <h4>Pagani Zonda HP Barchetta</h4>
+                    <p class="price">₹140.00 Cr</p>
+                    <button class="btn-view" onclick="updateVehicle(2)">View Details</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-image">Superleggera V4 Image</div>
+                    <h4>Ducati Superleggera V4</h4>
+                    <p class="price">₹1.15 Cr</p>
+                    <button class="btn-view" onclick="updateVehicle(3)">View Details</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-image">Ninja H2R Image</div>
+                    <h4>Kawasaki Ninja H2R</h4>
+                    <p class="price">₹80.00 Lakh</p>
+                    <button class="btn-view" onclick="updateVehicle(4)">View Details</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-image">Streetfighter Lamborghini Image</div>
+                    <h4>Ducati Streetfighter V4 Lamborghini</h4>
+                    <p class="price">₹75.00 Lakh</p>
+                    <button class="btn-view" onclick="updateVehicle(5)">View Details</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-image">Titan Hauler Image</div>
+                    <h4>2025 Titan Hauler 4x4</h4>
+                    <p class="price">₹42.00 Lakh</p>
+                    <button class="btn-view" onclick="updateVehicle(6)">View Details</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-image">Metro Lite Image</div>
+                    <h4>2025 Metro Lite Electric</h4>
+                    <p class="price">₹18.50 Lakh</p>
+                    <button class="btn-view" onclick="updateVehicle(7)">View Details</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Premium Auto Dealership. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const vehicleData = [
+            {
+                title: "Pagani Huayra Imola Roadster",
+                price: "₹45.00 Crore",
+                desc: "Experience the absolute pinnacle of Italian automotive artistry. An ultra-rare, track-focused open-top hypercar engineered for elite enthusiasts who demand unmatched performance and bespoke luxury.",
+                specs: ["Engine: 6.0L Twin-Turbo V12 (Mercedes-AMG)", "Max Power: 850 BHP", "0-100 km/h: 2.9 seconds", "Transmission: 7-Speed Automated Manual", "Top Speed: 350 km/h"]
+            },
+            {
+                title: "Rolls-Royce La Rose Noire Droptail",
+                price: "₹211.00 Crore",
+                desc: "The undisputed most expensive brand-new car in the world. A coachbuilt masterpiece featuring a dark, dramatic romance theme, hand-aligned wood parquetry, and an integrated Audemars Piguet luxury timepiece.",
+                specs: ["Engine: 6.75L Twin-Turbo V12", "Max Power: 593 BHP", "Body Style: Ultra-Exclusive Coachbuilt Roadster", "Craftsmanship: 1,603 hand-placed wood triangles", "Top Speed: 250 km/h"]
+            },
+            {
+                title: "Pagani Zonda HP Barchetta",
+                price: "₹140.00 Crore",
+                desc: "A pure legacy hypercar commissioned directly by Horacio Pagani. Featuring a cropped windshield and rear carbon-fibre wheel fairings, this car delivers an unadulterated classic V12 raw driving experience.",
+                specs: ["Engine: 7.3L Naturally Aspirated AMG V12", "Max Power: 789 BHP", "Transmission: 6-Speed Manual", "Weight: 1,250 kg ultra-lightweight", "Availability: Limited to 3 units worldwide"]
+            },
+            {
+                title: "Ducati Superleggera V4",
+                price: "₹1.15 Crore",
+                desc: "The only street-legal motorcycle in the world with an entire chassis, subframe, swingarm, and wheels constructed entirely out of structural carbon fibre. MotoGP performance optimized for premium riders.",
+                specs: ["Engine: 998cc Liquid-Cooled V4", "Max Power: 234 BHP (with Racing Kit)", "Dry Weight: Just 152.2 kg", "Power-to-Weight: Unparalleled 1.54 hp/kg", "Suspension: Ohlins NPX25/30 Pressurized Forks"]
+            },
+            {
+                title: "Kawasaki Ninja H2R",
+                price: "₹80.00 Lakh",
+                desc: "An absolute closed-course monster. Featuring a centrifugal supercharger, aerospace carbon-fibre winglets, and self-healing silver-mirror paint, the H2R is built for record-shattering velocity.",
+                specs: ["Engine: 998cc Supercharged Inline-4", "Max Power: 310 BHP (326 BHP with Ram Air)", "Top Speed: Over 400 km/h", "Torque: 165 Nm @ 12,500 rpm", "Electronics: Kawasaki Launch Control (KLCM)"]
+            },
+            {
+                title: "Ducati Streetfighter V4 Lamborghini",
+                price: "₹75.00 Lakh",
+                desc: "A breathtaking collaboration combining the aggressive lines of the Panigale V4 infrastructure with design cues borrowed directly from the multimillion-dollar Lamborghini Huracán STO hypercar.",
+                specs: ["Engine: 1,103cc Desmosedici Stradale V4", "Max Power: 208 BHP", "Wheels: Forged Lamborghini STO Design replicas", "Exhaust: Akrapovič Titanium silencer", "Edition size: Limited worldwide series"]
+            },
+            {
+                title: "2025 Titan Hauler 4x4",
+                price: "₹42.00 Lakh",
+                desc: "A rugged, heavy-duty premium lifestyle truck built to dominate unpredictable terrains while enclosing occupants inside a whisper-quiet, tech-packed leather sanctuary.",
+                specs: ["Engine: 3.0L Turbo Diesel Inline-6", "Towing Capacity: 6,500 kg", "Drivetrain: Intelligent 4WD with Low-Range Lock", "Ground Clearance: 245 mm", "Infotainment: 14-inch touchscreen console"]
+            },
+            {
+                title: "2025 Metro Lite Electric",
+                price: "₹18.50 Lakh",
+                desc: "The ultimate modern smart city companion. Engineered seamlessly for tight urban environments, quick charging cycles, and a sustainable carbon footprint without sacrificing daily luxuries.",
+                specs: ["Battery Pack: 42 kWh Liquid-Cooled Lithium-Ion", "Real-World Range: 320 km per charge", "Fast Charging: 10% to 80% in 28 minutes", "Safety: 5-Star Bharat NCAP Rating", "Features: Connected AI dashboard & panoramic roof"]
+            }
+        ];
+
+        function updateVehicle(index) {
+            const vehicle = vehicleData[index];
+            
+            // Update Title, Image Name placeholder, Price, and Description
+            document.getElementById('main-title').innerText = vehicle.title;
+            document.getElementById('main-image').innerText = vehicle.title + " Image";
+            document.getElementById('main-price').innerHTML = vehicle.price + ' <span class="ex-showroom">(Ex-Showroom Price)</span>';
+            document.getElementById('main-desc').innerText = vehicle.desc;
+            
+            // Clear and regenerate the unique specifications list
+            const specsContainer = document.getElementById('main-specs');
+            specsContainer.innerHTML = '';
+            
+            vehicle.specs.forEach(spec => {
+                const li = document.createElement('li');
+                // Bold the spec category name dynamically
+                const parts = spec.split(':');
+                li.innerHTML = `<strong>${parts[0]}:</strong>${parts[1]}`;
+                specsContainer.appendChild(li);
+            });
+            
+            // Smooth scroll back up to the top of the details window
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+<script src="main.js"></script>
+</html>

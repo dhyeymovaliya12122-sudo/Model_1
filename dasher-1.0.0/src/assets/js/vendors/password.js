@@ -1,4 +1,4 @@
-// password js
+
 
 class PasswordToggler {
   constructor(passwordClassName, togglerClassName) {
@@ -31,5 +31,5 @@ class PasswordToggler {
   }
 }
 
-// Create an instance of PasswordToggler for the desired class names
+
 const passwordToggler = new PasswordToggler('fakePassword', 'passwordToggler');

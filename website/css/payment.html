@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Motors | Secure Checkout</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="checkout-wrapper">
+        <div class="checkout-container">
+            
+            <section class="checkout-form-section">
+                <h2>Secure Checkout</h2>
+                
+                <form id="payment-form">
+                    <div class="form-section">
+                        <h3>1. Delivery & Registration Info</h3>
+                        <div class="form-group-split">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" required placeholder="John">
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" required placeholder="Doe">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" required placeholder="123 Luxury Lane">
+                        </div>
+                        <div class="form-group-split three-way">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required placeholder="Los Angeles">
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state" required placeholder="CA">
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">Zip Code</label>
+                                <input type="text" id="zip" required placeholder="90001">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>2. Payment Method</h3>
+                        <div class="payment-methods">
+                            <label class="radio-card selected">
+                                <input type="radio" name="payment-type" checked>
+                                <span>💳 Credit/Debit Card</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" required placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" required placeholder="4111 2222 3333 4444" maxlength="19">
+                        </div>
+
+                        <div class="form-group-split">
+                            <div class="form-group">
+                                <label for="expiry">Expiration Date</label>
+                                <input type="text" id="expiry" required placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="password" id="cvv" required placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-checkout">Complete Secure Purchase</button>
+                </form>
+            </section>
+
+            <aside class="checkout-summary-section">
+                <div class="summary-card">
+                    <h3>Order Summary</h3>
+                    <hr>
+                    <div class="summary-item">
+                        <span class="item-name">2024 Turbo Sedan</span>
+                        <span class="item-price">$45,000.00</span>
+                    </div>
+                    <div class="summary-details">
+                        <p>Color: Obsidian Black</p>
+                        <p>Trim: Premium Sport</p>
+                    </div>
+                    <hr>
+                    <div class="totals">
+                        <div class="total-row">
+                            <span>Document & Dealer Fees</span>
+                            <span>$495.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Estimated Tax</span>
+                            <span>$3,600.00</span>
+                        </div>
+                        <hr>
+                        <div class="total-row grand-total">
+                            <span>Total Due Today</span>
+                            <span>$49,095.00</span>
+                        </div>
+                    </div>
+                    <div class="secure-badge">
+                        🔒 SSL Encrypted & Secure Connection
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

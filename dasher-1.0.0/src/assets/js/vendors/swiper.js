@@ -1,4 +1,4 @@
-// swiper
+
 
 function initializeSwiperCarousels() {
   const swiperContainers = document.querySelectorAll('.swiper-container');
@@ -12,9 +12,9 @@ function initializeSwiperCarousels() {
     const autoplayDelay = swiperContainer.getAttribute('data-autoplay-delay') || 3000;
     const paginationType = swiperContainer.getAttribute('data-pagination-type') || 'bullets';
     const centerSlides = swiperContainer.getAttribute('data-center-slides') === 'true';
-    const effect = swiperContainer.getAttribute('data-effect') || 'slide'; // New attribute for effect type
+    const effect = swiperContainer.getAttribute('data-effect') || 'slide'; 
 
-    // Parse breakpoints from data attribute
+    
     const breakpointsData = swiperContainer.getAttribute('data-breakpoints');
     let breakpoints = {};
     if (breakpointsData) {
@@ -31,7 +31,7 @@ function initializeSwiperCarousels() {
       breakpoints: breakpoints,
       spaceBetween: 30,
       slidesPerView: 'auto',
-      effect: effect, // Set the effect type
+      effect: effect, 
       freeMode: true,
       centeredSlides: false,
     };
@@ -57,7 +57,7 @@ function initializeSwiperCarousels() {
           clickable: true,
         };
 
-        // Custom pagination with numbers
+        
         if (paginationType === 'custom') {
           swiperOptions.pagination.renderCustom = function (swiper, current, total) {
             var text = '';
@@ -80,7 +80,7 @@ function initializeSwiperCarousels() {
         prevEl: '.swiper-button-prev',
       };
     } else {
-      // Add the class to hide the navigation container
+      
       const navigationEl = swiperContainer.querySelector('.swiper-navigation');
       if (navigationEl) {
         navigationEl.classList.add('swiper-navigation-hidden');

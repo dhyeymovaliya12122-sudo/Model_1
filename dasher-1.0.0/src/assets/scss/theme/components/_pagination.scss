@@ -1,4 +1,4 @@
-// paginations
+
 
 .page-item:first-child .page-link {
     margin-right: $pagination-margin-x-first-last;
@@ -21,7 +21,7 @@
         }
       }
     } @else {
-      // Add border-radius to all pageLinks in case they have left margin
+      
       .page-link {
         @include border-radius(var(--#{$prefix}pagination-border-radius));
       }

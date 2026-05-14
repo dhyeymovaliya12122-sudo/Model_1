@@ -1,4 +1,4 @@
-// Darkmode
+
 
 (() => {
    "use strict";
@@ -38,7 +38,7 @@
       const themeSwitcherText = document.querySelector(".bs-theme-text");
       const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
 
-      if (!btnToActive) return; // Ensure the button exists before proceeding
+      if (!btnToActive) return; 
 
       document.querySelectorAll("[data-bs-theme-value]").forEach((element) => {
          element.classList.remove("active");

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Auto | Luxury Showroom</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Premium Indian Showroom Grid Layout */
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        .car-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+        .car-card h3 {
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e50;
+        }
+        .car-card .price {
+            color: #d35400; /* Luxury Deep Amber/Gold Accent */
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .placeholder-img {
+            background: #ddd;
+            height: 200px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        /* Indian Premium Button Style */
+        .btn-view {
+            background: #d35400;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-view:hover {
+            background: #b34700;
+        }
+        select {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Premium Auto</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="showroom.html">Showroom</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cart.html">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Our Exclusive Showroom</h2>
+        <p>Filter Fleet: 
+            <select>
+                <option>All Vehicles</option>
+                <option>Hypercars</option>
+                <option>Superbikes</option>
+                <option>Luxury SUVs & Trucks</option>
+                <option>Premium EVs</option>
+            </select>
+        </p>
+        <br>
+        
+        <section class="car-grid">
+            
+            <div class="car-card">
+                <div class="placeholder-img">Pagani Huayra Imola Roadster Image</div>
+                <h3>Pagani Huayra Imola Roadster</h3>
+                <p class="price">₹45.00 Crore</p>
+                <a href="details.html" class="btn-view">View Details</a>
+            </div>
+
+            <div class="car-card">
+                <div class="placeholder-img">Rolls-Royce La Rose Noire Droptail Image</div>
+                <h3>Rolls-Royce La Rose Noire Droptail</h3>
+                <p class="price">₹211.00 Crore</p>
+                <a href="details.html" class="btn-view">View Details</a>
+            </div>
+
+            <div class="car-card">
+                <div class="placeholder-img">Pagani Zonda HP Barchetta Image</div>
+                <h3>Pagani Zonda HP Barchetta</h3>
+                <p class="price">₹140.00 Crore</p>
+                <a href="details.html" class="btn-view">View Details</a>
+            </div>
+
+            <div class="car-card">
+                <div class="placeholder-img">Ducati Superleggera V4 Image</div>
+                <h3>Ducati Superleggera V4</h3>
+                <p class="price">₹1.15 Crore</p>
+                <a href="details.html" class="btn-view">View Details</a>
+            </div>
+
+            <div class="car-card">
+                <div class="placeholder-img">Kawasaki Ninja H2R Image</div>
+                <h3>Kawasaki Ninja H2R</h3>
+                <p class="price">₹80.00 Lakh</p>
+                <a href="details.html" class="btn-view">View Details</a>
+            </div>
+
+            <div class="car-card">
+                <div class="placeholder-img">Ducati Streetfighter V4 Lamborghini Image</div>
+                <h3>Ducati Streetfighter V4 Lamborghini</h3>
+                <p class="price">₹75.00 Lakh</p>
+                <a href="details.html" class="btn-view">View Details</a>
+            </div>
+
+            <div class="car-card">
+                <div class="placeholder-img">2025 Titan Hauler 4x4 Image</div>
+                <h3>2025 Titan Hauler 4x4</h3>
+                <p class="price">₹42.00 Lakh</p>
+                <a href="details.html" class="btn-view">View Details</a>
+            </div>
+
+            <div class="car-card">
+                <div class="placeholder-img">2025 Metro Lite Electric Image</div>
+                <h3>2025 Metro Lite Electric</h3>
+                <p class="price">₹18.50 Lakh</p>
+                <a href="details.html" class="btn-view">View Details</a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Premium Auto Dealership. All rights reserved.</p>
+    </footer>
+</body>
+<script src="main.js"></script>
+</html>

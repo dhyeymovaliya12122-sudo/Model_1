@@ -1,5 +1,5 @@
-// Button
-// btn icon
+
+
 
 .btn-icon {
   position: relative;
@@ -36,7 +36,7 @@
   height: 3.36875rem;
 }
 
-// password
+
 .was-validated .form-control:invalid,
 .form-control.is-invalid {
   & + span .passwordToggler {
@@ -73,7 +73,7 @@
   background-image: none;
 }
 
-// btn ghost
+
 
 .btn-ghost {
   --ds-btn-font-weight: 600;
@@ -90,7 +90,7 @@
   --ds-btn-active-border-color: var(--#{$prefix}gray-300);
 }
 
-// Subtle button variant mixin
+
 @mixin button-subtle-variant(
   $color,
   $background: $btn-soft-bg-opacity,
@@ -116,14 +116,14 @@
   --#{$prefix}gradient: none;
 }
 
-// Loop to generate subtle button variants for each theme color
+
 @each $color, $value in $theme-colors {
   .btn-subtle-#{$color} {
     @include button-subtle-variant($value, rgba($value, $btn-soft-bg-opacity + 0.1), rgba($value, $btn-soft-bg-opacity + 0.2));
   }
 }
 
-// btn white
+
 
 .btn-white {
   --#{$prefix}btn-color: #{$gray-700};
@@ -140,7 +140,7 @@
   --#{$prefix}btn-disabled-border-color: #{$gray-300};
 }
 
-// btn focus none
+
 .btn.btn-focus-none {
   &:active {
     border-color: transparent;
@@ -150,7 +150,7 @@
   }
 }
 
-// checkbox icon button for ecommerce
+
 
 .icon-checked {
   opacity: 0;
@@ -165,7 +165,7 @@
   }
 }
 
-// Social buttons
+
 
 @each $brand, $value in $social-buttons {
   .btn-#{$brand} {
@@ -182,7 +182,7 @@
   }
 }
 
-// Dots animation
+
 
 @keyframes dot-keyframes {
   0% {
@@ -222,19 +222,19 @@
   }
 }
 
-/* Default state */
+
 .btn-star.icon-tabler-star {
   fill: none;
   stroke: var(--#{$prefix}gray-500);
 }
 
-/* Checked state */
+
 .btn-check:checked + label .btn-star.icon-tabler-star {
-  fill: var(--#{$prefix}warning); /* Warning color */
-  stroke: var(--#{$prefix}warning); /* Warning color */
+  fill: var(--#{$prefix}warning); 
+  stroke: var(--#{$prefix}warning); 
 }
 
-// custom tooltip
+
 .customTooltip {
   position: absolute;
   background-color: var(--#{$prefix}primary-bg-subtle);

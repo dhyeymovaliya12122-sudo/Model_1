@@ -165,9 +165,9 @@ $utilities: map-merge(
           $utilities-text-colors,
           (
             'black-50': rgba($black, 0.5),
-            // deprecated
+            
             'white-50': rgba($white, 0.5),
-            // deprecated
+            
             'reset': inherit,
             'primary-lighter': rgba(#{$primary-100-rgb}, var(--ds-text-opacity)),
             'primary-light': rgba(#{$primary-300-rgb}, var(--ds-text-opacity)),
@@ -217,7 +217,7 @@ $utilities: map-merge(
       ),
     ),
 
-    // scss-docs-start utils-shadow
+    
     'shadow':
       (
         property: box-shadow,
@@ -251,12 +251,12 @@ $utilities: map-merge(
       responsive: true,
       values: auto hidden visible scroll,
     ),
-    // scss-docs-end utils-shadow
+    
   )
 );
 
 @import '../../../../node_modules/bootstrap/scss/utilities/api';
-// Utilities classes
+
 @import './utilities/_text.scss';
 @import './utilities/_icon-shape.scss';
 @import './utilities/_border.scss';

@@ -1,6 +1,6 @@
-// dropdown
 
-// dropdown item
+
+
 .dropdown-item {
   line-height: 26px;
 
@@ -56,7 +56,7 @@
   box-shadow: var(--#{$prefix}box-shadow-lg);
 }
 
-// dropdown menu sizes
+
 .dropdown-menu-xs {
   min-width: 8rem !important;
 }
@@ -76,7 +76,7 @@
   min-width: 29rem !important;
 }
 
-// dropdown toggle arrow
+
 .dropdown-toggle::after {
   margin-left: 0.255em;
   vertical-align: 0.255em;
@@ -89,7 +89,7 @@
   float: right;
 }
 
-// dropup
+
 .dropup .dropdown-toggle::after {
   display: inline-block;
   margin-left: 0.255em;
@@ -102,7 +102,7 @@
   border-left: 0rem;
 }
 
-// dropright
+
 .dropend .dropdown-toggle::after {
   display: inline-block;
   margin-left: 0.255em;
@@ -115,7 +115,7 @@
   border-left: 0rem;
 }
 
-// dropleft
+
 .dropstart .dropdown-toggle::before {
   display: inline-block;
   margin-right: 0.255em;
@@ -127,7 +127,7 @@
   border-left: 0rem;
 }
 
-// dropdown item icon
+
 .dropdown-item-icon {
   display: inline-block;
   opacity: 0.7;
@@ -136,7 +136,7 @@
   color: var(--#{$prefix}gray-600);
 }
 
-// Responsive breakpoints for dropdown
+
 @media (min-width: 990px) {
   .dropstart-lg {
     position: relative;
@@ -152,7 +152,7 @@
   }
 }
 
-// Toggle none
+
 
 .dropdown-toggle-none .dropdown-toggle::before {
   display: none;

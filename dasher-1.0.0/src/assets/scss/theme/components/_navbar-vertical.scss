@@ -1,4 +1,4 @@
-// Navbar
+
 
 .navbar-glass {
   background-image: none;
@@ -39,7 +39,7 @@ html.collapsed #miniSidebar {
     background-color: var(--#{$prefix}body-bg);
     padding: 0.75rem 1rem;
     z-index: 2;
-    // border-right: 1px dashed var(--#{$prefix}gray-300);
+    
     @media (max-width: 768px) {
       padding: 0rem 1rem;
     }
@@ -53,9 +53,9 @@ html.collapsed #miniSidebar {
 
   .navbar-nav {
     overflow: visible;
-    // height: 100%;
+    
     background-color: var(--#{$prefix}navbar-bg);
-    // border-right: 1px dashed var(--#{$prefix}gray-300);
+    
   }
 
   .nav-heading {
@@ -153,7 +153,7 @@ html.expanded #miniSidebar {
     background-color: var(--#{$prefix}navbar-bg);
     padding: 0.75rem 1rem;
     z-index: 2;
-    // border-right: 1px dashed var(--#{$prefix}gray-300);
+    
     @media (max-width: 768px) {
       padding: 0rem 1rem;
     }
@@ -220,7 +220,7 @@ html.expanded #miniSidebar {
         display: flex;
         justify-content: space-between;
         padding: 0.5rem 1.25rem;
-        // margin: 0.125rem 0.5rem;
+        
       }
       .dropdown-menu {
         .nav-link {
@@ -304,7 +304,7 @@ html.expanded #content .navbar-glass {
   }
 }
 
-/* Media query for 390px screen width or less */
+
 @media (max-width: 990px) {
   html.collapsed #miniSidebar {
     display: none;
@@ -319,7 +319,7 @@ html.expanded #content .navbar-glass {
 
     position: absolute;
     width: 250px;
-    // height: 130% !important;
+    
     top: 40px;
     display: none;
   }
@@ -363,7 +363,7 @@ html.expanded #content .navbar-glass {
     background-color: var(--#{$prefix}navbar-bg);
     padding: 0.75rem 1rem;
     z-index: 2;
-    // border-right: 1px dashed var(--#{$prefix}gray-300);
+    
     @media (max-width: 768px) {
       padding: 0rem 1rem;
     }
@@ -430,7 +430,7 @@ html.expanded #content .navbar-glass {
         display: flex;
         justify-content: space-between;
         padding: 0.5rem 1.25rem;
-        // margin: 0.125rem 0.5rem;
+        
       }
       .dropdown-menu {
         .nav-link {

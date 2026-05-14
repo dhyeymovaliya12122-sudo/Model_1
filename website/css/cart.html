@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Auto | Reservation Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table { width: 100%; border-collapse: collapse; background: #fff; margin-bottom: 2rem; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #ddd; }
+        .cart-summary { text-align: right; background: #fff; padding: 2rem; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <h1><a href="index.html">Premium Auto</a></h1>
+        <nav><ul><li><a href="index.html">Home</a></li><li><a href="showroom.html">Showroom</a></li></ul></nav>
+    </header>
+
+    <main>
+        <h2>Your Reservation Cart</h2>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Reservation Fee</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025 Sportster GT</td>
+                    <td>$500.00</td>
+                    <td><button class="btn" style="background: #777;">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <h3>Total: $500.00</h3>
+            <br>
+            <a href="payment.html" class="btn">Proceed to Payment</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Premium Auto Dealership. All rights reserved.</p>
+    </footer>
+</body>
+<script src="main.js"></script>
+</html>

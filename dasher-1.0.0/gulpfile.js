@@ -1,4 +1,4 @@
-// Load plugins
+
 const { src, dest, watch, parallel, series } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const gulpautoprefixer = require('gulp-autoprefixer');
@@ -16,7 +16,7 @@ const replace = require('gulp-replace');
 const gulpTerser = require('gulp-terser');
 const uglify = require('gulp-uglify');
 
-// Paths to project folders
+
 
 const paths = {
   base: {
@@ -25,16 +25,15 @@ const paths = {
   },
   src: {
     basesrc: './src',
-    basesrcfiles: './src/**/*',
-    scss: './src/assets/scss/**/*.scss',
+    basesrcfiles: './src*',
+    scss: './src/assets/scss*.scss',
     css: './src/assets/css',
-    js: './src/assets/js/**/*.js',
-    vendorJs: './src/assets/js/vendors/*.js',
-    html: './src/**/*.html',
-    images: './src/assets/images/**/*',
-    fonts: './src/assets/fonts/**/*',
-    assets: './src/assets/**/*',
-    partials: '.src/partials/**/*',
+    js: './src/assets/js*.js',
+    vendorJs: './src/assets/js/vendors*.html',
+    images: './src/assets/images*',
+    fonts: './src/assets/fonts*',
+    assets: './src/assets*',
+    partials: '.src/partials*',
   },
   temp: {
     basetemp: './.temp',
@@ -50,7 +49,7 @@ const paths = {
   },
 };
 
-// SCSS to CSS
+
 function scss(callback) {
   return src(paths.src.scss)
     .pipe(sass().on('error', sass.logError))
@@ -60,31 +59,31 @@ function scss(callback) {
   callback();
 }
 
-// vendor js
+
 function vendorJs(callback) {
   return src(paths.src.vendorJs).pipe(uglify()).pipe(dest(paths.dist.vendorJs));
   callback();
 }
 
-// Image
+
 function images(callback) {
   return src(paths.src.images, {
-    encoding: null, // `null` is used to signify binary encoding
-    buffer: true, // Use buffers for compatibility
-    removeBOM: true, // Remove Byte Order Mark if present
+    encoding: null, 
+    buffer: true, 
+    removeBOM: true, 
   }).pipe(dest(paths.dist.images));
   callback();
 }
 
-// Font task
+
 function fonts(callback) {
   return src(paths.src.fonts).pipe(dest(paths.dist.fonts));
   callback();
 }
 
-// HTML
+
 function html(callback) {
-  return src([paths.src.html, '!./src/partials/**/*'])
+  return src([paths.src.html, '!./src/partials*'])
     .pipe(
       fileinclude({
         prefix: '@@',
@@ -95,16 +94,16 @@ function html(callback) {
     .pipe(replace(/href="(.{0,10})node_modules/g, 'href="$1assets/libs'))
     .pipe(useref())
     .pipe(cached())
-    .pipe(gulpIf('*.css', postcss([autoprefixer(), cssnano()]))) // PostCSS plugins with cssnano
+    .pipe(gulpIf('*.css', postcss([autoprefixer(), cssnano()]))) 
     .pipe(gulpIf('*.js', gulpTerser()))
     .pipe(dest(paths.dist.basedist))
     .pipe(browsersync.stream());
   callback();
 }
 
-// File include task for temp
+
 function fileincludeTask(callback) {
-  return src([paths.src.html, '!./src/partials/**/*'])
+  return src([paths.src.html, '!./src/partials*'])
     .pipe(
       fileinclude({
         prefix: '@@',
@@ -116,25 +115,25 @@ function fileincludeTask(callback) {
   callback();
 }
 
-// Copy libs file from nodemodules to dist
+
 function copyLibs(callback) {
   return src(npmDist(), { base: paths.base.node }).pipe(dest(paths.dist.libs));
   callback();
 }
 
-// Clean .temp folder
+
 function cleanTemp(callback) {
   del.sync(paths.temp.basetemp);
   callback();
 }
 
-// Clean Dist folder
+
 function cleanDist(callback) {
   del.sync(paths.dist.basedist);
   callback();
 }
 
-// Browser Sync Serve
+
 function browsersyncServe(callback) {
   browsersync.init({
     server: {
@@ -144,26 +143,26 @@ function browsersyncServe(callback) {
   callback();
 }
 
-// SyncReload
+
 function syncReload(callback) {
   browsersync.reload();
   callback();
 }
 
-// Watch Task
+
 function watchTask() {
   watch(paths.src.html, series(fileincludeTask, syncReload));
   watch([paths.src.images, paths.src.fonts, paths.src.vendorJs], series(images, fonts, vendorJs));
   watch([paths.src.scss], series(scss, syncReload));
 }
 
-// Default Task Preview
+
 exports.default = series(fileincludeTask, browsersyncServe, watchTask);
 
-// Build Task for Dist
+
 exports.build = series(parallel(cleanDist), html, images, fonts, vendorJs, copyLibs, cleanTemp);
 
-// export tasks
+
 exports.scss = scss;
 exports.vendorJs = vendorJs;
 exports.images = images;

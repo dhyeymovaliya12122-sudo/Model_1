@@ -1,4 +1,4 @@
-// navbar dark
+
 .navbar-dark {
   transition: all 0.3s ease-in-out;
 
@@ -28,7 +28,7 @@
   }
 }
 
-// navbar light
+
 .navbar-light {
   border-bottom: 1px dashed var(--#{$prefix}gray-100);
   .navbar-nav {

@@ -1,4 +1,4 @@
-// dark mode
+
 
 [data-bs-theme='dark'] {
   $grays: (
@@ -39,7 +39,7 @@
   --#{$prefix}box-shadow-lg: 0 12px 24px -4px rgba(0 0 0 / 0.16) !important;
   --#{$prefix}box-shadow-xl: 0 0 2px 0 rgba(0 0 0 / 0.2), 0 12px 24px -4px rgba(0 0 0 / 0.12) !important;
 
-  // Button
+  
   @each $color, $value in $theme-colors {
     .btn-#{$color} {
       @include button-variant($value, $value);
@@ -51,12 +51,12 @@
     }
   }
 
-  // // Prefix for :root CSS variables
+  
   @each $color, $value in $grays {
     --#{$prefix}gray-#{$color}: #{$value};
   }
 
-  // // Color
+  
   @each $color, $value in $theme-colors {
     --#{$prefix}#{$color}: #{$value};
   }
@@ -73,7 +73,7 @@
   .dark-mode-none {
     display: none;
   }
-  // theme color
+  
 
   @each $color, $value in $theme-colors {
     $color-rgb: to-rgb($value);
@@ -86,7 +86,7 @@
       background-color: rgba($color-rgb, var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
     }
   }
-  // Gray Color
+  
   @each $color, $value in $grays {
     .bg-gray-#{$color} {
       background-color: $value !important;
@@ -115,7 +115,7 @@
     --#{$prefix}btn-disabled-border-color: #{$gray-100};
   }
 
-  // btn white
+  
 
   .btn-white {
     --#{$prefix}btn-color: #{$white};

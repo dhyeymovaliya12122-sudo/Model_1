@@ -1,4 +1,4 @@
-// Chart js
+
 
 var theme = {
   primary: 'var(--ds-primary)',
@@ -25,11 +25,11 @@ var theme = {
   transparent: 'transparent',
 };
 
-// Add theme to the window object
+
 window.theme = theme;
 
 (function () {
-  // Perfomance Chart
+  
 
   if (document.getElementById('totalIncomeChart')) {
     var options = {
@@ -99,7 +99,7 @@ window.theme = theme;
         },
       },
       legend: {
-        show: false, // Disable built-in legend
+        show: false, 
       },
       yaxis: {
         labels: {
@@ -193,7 +193,7 @@ window.theme = theme;
         },
       },
       legend: {
-        show: false, // Disable built-in legend
+        show: false, 
       },
       yaxis: {
         labels: {
@@ -217,7 +217,7 @@ window.theme = theme;
     chart.render();
   }
 
-  // total sale donut chart
+  
   if (document.getElementById('totalSale')) {
     var options = {
       series: [40, 30, 25, 10],
@@ -344,7 +344,7 @@ window.theme = theme;
     chart.render();
   }
 
-  // location map
+  
   if (document.getElementById('map-world')) {
     const map = new jsVectorMap({
       selector: '#map-world',
@@ -359,9 +359,9 @@ window.theme = theme;
       },
       zoomOnScroll: false,
       zoomButtons: false,
-      // -------- Series --------
+      
       visualizeData: {
-        scale: ['#fcfdfd', '#c4cdd5', '#ff0000'], // Define a color scale
+        scale: ['#fcfdfd', '#c4cdd5', '#ff0000'], 
         values: {
           AF: 16,
           AL: 11,

@@ -1,4 +1,4 @@
-// Jsvectormap
+
 
 @keyframes jvm-line-animation {
   from {
@@ -132,9 +132,9 @@ text {
 .jvm-line[animation='true'] {
   animation: jvm-line-animation 10s linear forwards infinite;
 }
-// .jvm-region.jvm-element {
-//     fill: var(--#{$prefix}gray-300);
-// }
+
+
+
 
 .jvm-marker {
   fill: var(--#{$prefix}primary);

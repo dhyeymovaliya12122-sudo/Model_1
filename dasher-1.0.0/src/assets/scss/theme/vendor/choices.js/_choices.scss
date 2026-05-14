@@ -1,4 +1,4 @@
-// Choice js
+
 
 $choices-selector: 'choices' !default;
 $choices-font-size-lg: 16px !default;
@@ -33,7 +33,7 @@ $choices-z-index: 1 !default;
 .#{$choices-selector} {
   position: relative;
   overflow: hidden;
-  // margin-bottom: $choices-guttering;
+  
   font-size: $choices-font-size-lg;
   font-weight: 400;
 
@@ -120,7 +120,7 @@ $choices-z-index: 1 !default;
 
   &.is-open::after {
     border-color: transparent transparent $choices-text-color transparent;
-    // margin-top: -4.5px;
+    
   }
 
   &[dir='rtl'] {
@@ -170,7 +170,7 @@ $choices-z-index: 1 !default;
   vertical-align: top;
   width: 100%;
   background-color: $choices-bg-color;
-  // padding: 0px;
+  
   border: 1px solid $choices-keyline-color;
   border-radius: $choices-border-radius;
   font-size: $choices-font-size-lg;
@@ -212,8 +212,8 @@ $choices-z-index: 1 !default;
   }
   .#{$choices-selector}__item {
     width: 100%;
-    // color: $gray-900;
-    // font-size: 0.9375rem;
+    
+    
   }
 }
 
@@ -264,8 +264,8 @@ $choices-z-index: 1 !default;
   border-radius: 0.5rem;
   top: 100%;
   margin-top: 0px;
-  // border-bottom-left-radius: $choices-border-radius;
-  // border-bottom-right-radius: $choices-border-radius;
+  
+  
   overflow: hidden;
   word-break: break-all;
   will-change: visibility;
@@ -307,7 +307,7 @@ $choices-z-index: 1 !default;
   }
   .#{$choices-selector}__item--selectable {
     @media (min-width: 640px) {
-      // padding-right: 100px;
+      
 
       &::after {
         content: attr(data-select-text);
@@ -421,4 +421,4 @@ $choices-z-index: 1 !default;
   opacity: 1;
 }
 
-/* =====  End of Choices  ====== */
+

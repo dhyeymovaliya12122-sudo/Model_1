@@ -1,4 +1,4 @@
-// choices.js
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const elements = document.querySelectorAll('[data-choices]');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
       maxItemCount: 5,
       searchEnabled: false,
       placeholder: true,
-      placeholderValue: element.getAttribute('placeholder') || 'Select an option', // Ensure placeholder is set
+      placeholderValue: element.getAttribute('placeholder') || 'Select an option', 
       classNames: {
         containerInner: isInput ? 'form-control' : 'form-select',
       },
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// choices.js for innertext with badge
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const elements = document.querySelectorAll('[data-choices-innertext]');
