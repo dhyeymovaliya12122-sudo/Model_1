@@ -90,7 +90,7 @@ hr {
     margin: 1.5rem 0;
 }
 
-.btn, .btn-view, .btn-detail {
+.btn, .btn-view {
     background: transparent;
     border: 1px solid var(--primary);
     color: var(--primary);
@@ -104,19 +104,19 @@ hr {
     text-align: center;
 }
 
-.btn:hover, .btn-view:hover, .btn-detail:hover {
+.btn:hover, .btn-view:hover {
     background: var(--primary);
     color: #ffffff;
 }
 
-.car-grid, .luxury-grid {
+.car-grid, .showroom-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
     padding: 1rem 0;
 }
 
-.car-card, .card-elite {
+.car-card, .showroom-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     padding: 1.5rem;
@@ -128,13 +128,13 @@ hr {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.car-card:hover, .card-elite:hover {
+.car-card:hover, .showroom-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: 0 5px 15px rgba(181, 137, 0, 0.15);
 }
 
-.car-image, .thumb-image {
+.car-image, .card-image {
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -142,7 +142,7 @@ hr {
     margin-bottom: 1rem;
 }
 
-.car-card h3, .card-elite h4 {
+.car-card h3, .showroom-card h4 {
     margin: 1rem 0 0.5rem 0;
     font-size: 1.2rem;
     min-height: 44px;
@@ -153,7 +153,7 @@ hr {
     font-family: 'Poppins', sans-serif;
 }
 
-.car-card .price, .card-elite .p-gold {
+.car-card .price, .showroom-card .price-value {
     color: var(--primary);
     font-weight: bold;
     font-size: 1.2rem;
@@ -202,7 +202,7 @@ hr {
     width: 100%;
 }
 
-.main-display-box {
+.image-display-box {
     width: 100%;
     height: 400px;
     background: var(--card-bg);
@@ -263,7 +263,7 @@ hr {
     margin-bottom: 0.5rem;
 }
 
-#main-price {
+#vehicle-price {
     font-size: 2.2rem;
     color: var(--primary);
     margin: 0;
@@ -281,14 +281,14 @@ hr {
     margin-bottom: 2rem;
 }
 
-.spec-card {
+.specification-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     padding: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.spec-header {
+.specification-heading {
     margin-bottom: 1rem;
     font-size: 1.1rem;
     letter-spacing: 1px;
@@ -316,12 +316,12 @@ hr {
     color: var(--primary-hover);
 }
 
-.cta-group {
+.action-group {
     display: flex;
     gap: 1rem;
 }
 
-.btn-royal {
+.btn-order {
     background: var(--primary);
     color: #ffffff;
     border: none;
@@ -334,11 +334,11 @@ hr {
     text-align: center;
 }
 
-.btn-royal:hover {
+.btn-order:hover {
     background: var(--primary-hover);
 }
 
-.btn-whatsapp-india {
+.btn-whatsapp {
     background: var(--success);
     color: #ffffff;
     padding: 1rem 2rem;
@@ -350,11 +350,11 @@ hr {
     transition: background 0.3s;
 }
 
-.btn-whatsapp-india:hover {
+.btn-whatsapp:hover {
     background: #20ba5a;
 }
 
-.fleet-explorer {
+.fleet-section {
     margin-top: 5rem;
 }
 
@@ -727,7 +727,7 @@ td {
     margin-left: 0.25rem;
 }
 
-footer, .footer-royal, .site-footer {
+footer, .footer-main, .site-footer {
     text-align: center;
     padding: 3rem 1rem;
     margin-top: 5rem;
@@ -769,7 +769,7 @@ footer, .footer-royal, .site-footer {
 }
 
 @media (max-width: 480px) {
-    .cta-group {
+    .action-group {
         flex-direction: column;
     }
     .form-group-split, .form-group-split.three-way {

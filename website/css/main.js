@@ -8,6 +8,7 @@ function insertHeader() {
         .then(response => response.text())
         .then(html => {
             headerContainer.innerHTML = html;
+            updateCartBadge();
         })
         .catch(error => {
             console.error('Error fetching header:', error);
@@ -51,55 +52,116 @@ function createScrollButtons() {
     });
 }
 
-function updateCartTotal() {
-    const totalField = document.getElementById('cart-total');
-    if (!totalField) return;
+let cart = JSON.parse(localStorage.getItem('luxury_cart')) || [];
 
-    const rows = document.querySelectorAll('tbody tr[data-unit-price]');
-    let total = 0;
-
-    rows.forEach(row => {
-        const unitPrice = parseFloat(row.dataset.unitPrice) || 0;
-        const quantityInput = row.querySelector('.quantity-input');
-        const quantity = parseInt(quantityInput?.value, 10) || 1;
-        total += unitPrice * quantity;
-    });
-
-    totalField.textContent = total.toFixed(2);
+function saveCart() {
+    localStorage.setItem('luxury_cart', JSON.stringify(cart));
 }
 
-function setupCartQuantityControls() {
-    const quantityButtons = document.querySelectorAll('.qty-btn');
-    if (!quantityButtons.length) return;
+function updateCartBadge() {
+    const cartLink = document.querySelector('a[href="cart.html"]');
+    if (cartLink) {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartLink.textContent = `Cart (${totalItems})`;
+    }
+}
 
-    quantityButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const action = button.dataset.action;
-            const row = button.closest('tr');
-            const input = row.querySelector('.quantity-input');
-            let value = parseInt(input.value, 10) || 1;
-
-            if (action === 'increase') {
-                value += 1;
-            } else if (action === 'decrease' && value > 1) {
-                value -= 1;
+function initAddCartButtons() {
+    const addBtns = document.querySelectorAll('.btn-add-cart');
+    addBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const name = e.target.dataset.name;
+            const price = parseFloat(e.target.dataset.price);
+            const img = e.target.dataset.img;
+            
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ name, price, img, quantity: 1 });
             }
-
-            input.value = value;
-            updateCartTotal();
+            
+            saveCart();
+            updateCartBadge();
+            alert(`${name} added to cart!`);
         });
     });
+}
 
-    const removeButtons = document.querySelectorAll('.remove-btn');
-    removeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const row = button.closest('tr');
-            row?.remove();
-            updateCartTotal();
+function formatPrice(price) {
+    if (price >= 10000000) {
+        return `₹${(price / 10000000).toFixed(2)} Crore`;
+    } else if (price >= 100000) {
+        return `₹${(price / 100000).toFixed(2)} Lakh`;
+    }
+    return `₹${price.toLocaleString()}`;
+}
+
+function renderCart() {
+    const tbody = document.getElementById('cart-tbody');
+    if (!tbody) return;
+    
+    tbody.innerHTML = '';
+    let total = 0;
+    
+    cart.forEach((item, index) => {
+        const rowTotal = item.price * item.quantity;
+        total += rowTotal;
+        
+        const tr = document.createElement('tr');
+        tr.dataset.unitPrice = item.price;
+        tr.innerHTML = `
+            <td>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <img src="${item.img}" alt="${item.name}" style="width: 80px; height: 50px; object-fit: cover; border-radius: 4px;">
+                    <span>${item.name}</span>
+                </div>
+            </td>
+            <td>${formatPrice(item.price)}</td>
+            <td>
+                <div class="quantity-control">
+                    <button type="button" class="qty-btn" data-action="decrease" data-index="${index}">-</button>
+                    <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                    <button type="button" class="qty-btn" data-action="increase" data-index="${index}">+</button>
+                </div>
+            </td>
+            <td>${formatPrice(rowTotal)}</td>
+            <td>
+                <button type="button" class="btn remove-btn" data-index="${index}">Remove</button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+    
+    const totalEl = document.getElementById('cart-total');
+    if (totalEl) {
+        totalEl.textContent = formatPrice(total);
+    }
+    
+    tbody.querySelectorAll('.qty-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const idx = e.target.dataset.index;
+            const action = e.target.dataset.action;
+            if (action === 'increase') {
+                cart[idx].quantity += 1;
+            } else if (action === 'decrease' && cart[idx].quantity > 1) {
+                cart[idx].quantity -= 1;
+            }
+            saveCart();
+            updateCartBadge();
+            renderCart();
         });
     });
-
-    updateCartTotal();
+    
+    tbody.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const idx = e.target.dataset.index;
+            cart.splice(idx, 1);
+            saveCart();
+            updateCartBadge();
+            renderCart();
+        });
+    });
 }
 
 function setupFaqLoadMore() {
@@ -116,9 +178,44 @@ function setupFaqLoadMore() {
     });
 }
 
+function renderCheckoutSummary() {
+    const container = document.getElementById('checkout-items-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const rowTotal = item.price * item.quantity;
+        total += rowTotal;
+        
+        container.innerHTML += `
+            <div class="summary-item">
+                <span class="item-name">${item.quantity}x ${item.name}</span>
+                <span class="item-price">${formatPrice(rowTotal)}</span>
+            </div>
+        `;
+    });
+
+    // Flat doc fee ₹10,000 as an example for cars
+    const fees = cart.length > 0 ? 10000 : 0; 
+    const tax = total * 0.18; // 18% GST example
+    const grandTotal = total + fees + tax;
+
+    const feesEl = document.getElementById('checkout-fees');
+    const taxEl = document.getElementById('checkout-tax');
+    const grandTotalEl = document.getElementById('checkout-grand-total');
+
+    if (feesEl) feesEl.textContent = formatPrice(fees);
+    if (taxEl) taxEl.textContent = formatPrice(tax);
+    if (grandTotalEl) grandTotalEl.textContent = formatPrice(grandTotal);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     insertHeader();
     createScrollButtons();
-    setupCartQuantityControls();
+    initAddCartButtons();
+    renderCart();
+    renderCheckoutSummary();
     setupFaqLoadMore();
 });
