@@ -52,7 +52,7 @@ function createScrollButtons() {
     });
 }
 
-let cart = JSON.parse(localStorage.getItem('luxury_cart')) || [];
+
 
 function saveCart() {
     localStorage.setItem('luxury_cart', JSON.stringify(cart));
@@ -197,9 +197,9 @@ function renderCheckoutSummary() {
         `;
     });
 
-    // Flat doc fee ₹10,000 as an example for cars
+
     const fees = cart.length > 0 ? 10000 : 0; 
-    const tax = total * 0.18; // 18% GST example
+    const tax = total * 0.18; 
     const grandTotal = total + fees + tax;
 
     const feesEl = document.getElementById('checkout-fees');
