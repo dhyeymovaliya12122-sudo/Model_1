@@ -3,51 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Auto | Reservation Cart</title>
+    <title>Premium Auto India | The Royal Fleet</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        table { width: 100%; border-collapse: collapse; background: #fff; margin-bottom: 2rem; }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #ddd; }
-        .cart-summary { text-align: right; background: #fff; padding: 2rem; border-radius: 8px; }
+        /* Container holds both Main Box and the Bottom Gallery */
+        .gallery-container {
+            display: flex;
+            flex-direction: column; /* Stacks image box on top of the sub-images */
+            gap: 15px;
+            width: 100%;
+            max-width: 600px; /* Limits size to prevent stretching */
+        }
+
+        /* Main Image Window */
+        .main-display-box {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fdfdfd;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+        .main-display-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Sub-images Row at the Bottom */
+        .bottom-thumbnails {
+            display: flex;
+            flex-direction: row; /* Aligns sub-images horizontally */
+            gap: 10px;
+            justify-content: flex-start;
+            overflow-x: auto; /* Adds a scrollbar if there are too many sub-images */
+            padding-bottom: 5px;
+        }
+
+        /* Sub-image Thumbnail Item Styling */
+        .thumb-sub-img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .thumb-sub-img:hover, .thumb-sub-img.active {
+            border: 2px solid #b39210; /* Gold highlight when selected/hovered */
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
-    <header>
-        
-        <h1><a href="index.html">Premium Auto</a></h1>
-        <nav><ul><li><a href="index.html">Home</a></li><li><a href="showroom.html">Showroom</a></li></ul></nav>
-    </header>
+    <div id="header"></div>
+    <main class="container">
+        <div class="details-section">
+            
+            <div class="gallery-container">
+                <div class="main-display-box shadow-gold">
+                    <img id="main-image" src="Pagani Huayra Imola Roadster.jpg" alt="Selected Vehicle">
+                </div>
 
-    <main>
-        <h2>Your Reservation Cart</h2>
-        <br>
-        <table>
-            <thead>
-                <tr>
-                    <th>Vehicle</th>
-                    <th>Reservation Fee</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2025 Sportster GT</td>
-                    <td>$500.00</td>
-                    <td><button class="btn" style="background: #777;">Remove</button></td>
-                </tr>
-            </tbody>
-        </table>
+                <div class="bottom-thumbnails" id="sub-image-gallery">
+                    </div>
+            </div>
 
-        <div class="cart-summary">
-            <h3>Total: $500.00</h3>
-            <br>
-            <a href="payment.html" class="btn">Proceed to Payment</a>
+            <div class="info-panel">
+                <h2 id="main-title" class="luxury-title">Pagani Huayra Imola Roadster</h2>
+                <div class="price-container">
+                    <span class="price-tag">Exclusive Valuation</span>
+                    <h3 id="main-price">₹45.00 Crore*</h3>
+                    <p class="tax-note">*Ex-Showroom Price (GST & Cess extra as applicable)</p>
+                </div>
+
+                <p id="main-desc" class="description-text">
+                    Experience the absolute pinnacle of Italian automotive artistry. An ultra-rare, track-focused open-top hypercar engineered for elite enthusiasts who demand unmatched performance and bespoke luxury.
+                </p>
+                
+                <div class="spec-card">
+                    <h4 class="spec-header">Engineering Specifications</h4>
+                    <ul class="specs-grid" id="main-specs">
+                        <li><strong>Engine:</strong> 6.0L Twin-Turbo V12 (Mercedes-AMG)</li>
+                        <li><strong>Max Power:</strong> 850 BHP</li>
+                        <li><strong>0-100 km/h:</strong> 2.9 seconds</li>
+                        <li><strong>Transmission:</strong> 7-Speed Automated Manual</li>
+                        <li><strong>Top Speed:</strong> 350 km/h</li>
+                    </ul>
+                </div>
+
+                <div class="cta-group">
+                    <button class="btn-royal" onclick="alert('Our Relationship Manager will assist you with the bespoke configuration.')">Start Your Order</button>
+                    <a href="https://wa.me/919999999999" target="_blank" class="btn-whatsapp-india">
+                        WhatsApp Concierge
+                    </a>
+                </div>
+            </div>
         </div>
+
+        <section class="fleet-explorer">
+            <div class="section-title">
+                <h3>The Full Showroom Fleet</h3>
+                <div class="gold-divider"></div>
+            </div>
+            
+            <div class="luxury-grid">
+                <div class="card-elite">
+                    <img src="Pagani Huayra Imola Roadster.jpg" alt="Pagani Huayra Imola Roadster" class="thumb-image">
+                    <h4>Pagani Huayra Imola</h4>
+                    <p class="p-gold">₹45.00 Cr</p>
+                    <button class="btn-detail" onclick="updateVehicle(0)">View Collection</button>
+                </div>
+                <div class="card-elite">
+                    <img src="Rolls-Royce La Rose Noire Droptail.jpg" alt="Rolls-Royce La Rose Noire Droptail" class="thumb-image">
+                    <h4>Rolls-Royce Droptail</h4>
+                    <p class="p-gold">₹211.00 Cr</p>
+                    <button class="btn-detail" onclick="updateVehicle(1)">View Collection</button>
+                </div>
+                <div class="card-elite">
+                    <img src="Pagani Zonda HP Barchetta.jpg" alt="Pagani Zonda HP Barchetta" class="thumb-image">
+                    <h4>Pagani Zonda HP</h4>
+                    <p class="p-gold">₹140.00 Cr</p>
+                    <button class="btn-detail" onclick="updateVehicle(2)">View Collection</button>
+                </div>
+                <div class="card-elite">
+                    <img src="Ducati Superleggera V4.jpg" alt="Ducati Superleggera V4" class="thumb-image">
+                    <h4>Ducati Superleggera V4</h4>
+                    <p class="p-gold">₹1.15 Cr</p>
+                    <button class="btn-detail" onclick="updateVehicle(3)">View Collection</button>
+                </div>
+                <div class="card-elite">
+                    <img src="Kawasaki Ninja H2R.jpg" alt="Kawasaki Ninja H2R" class="thumb-image">
+                    <h4>Kawasaki Ninja H2R</h4>
+                    <p class="p-gold">₹80.00 Lakh</p>
+                    <button class="btn-detail" onclick="updateVehicle(4)">View Collection</button>
+                </div>
+                <div class="card-elite">
+                    <img src="Ducati Streetfighter V4 Lamborghini.jpg" alt="Ducati Streetfighter V4 Lamborghini" class="thumb-image">
+                    <h4>Ducati Streetfighter</h4>
+                    <p class="p-gold">₹75.00 Lakh</p>
+                    <button class="btn-detail" onclick="updateVehicle(5)">View Collection</button>
+                </div>
+                <div class="card-elite">
+                    <img src="2025 Nissan Titan.jpg" alt="2025 Nissan Titan Hauler 4x4" class="thumb-image">
+                    <h4>2025 Nissan Titan</h4>
+                    <p class="p-gold">₹36.00 Lakh</p>
+                    <button class="btn-detail" onclick="updateVehicle(6)">View Collection</button>
+                </div>
+                <div class="card-elite">
+                    <img src="Koenigsegg One1.jpg" alt="Koenigsegg One:1" class="thumb-image">
+                    <h4>Koenigsegg One:1</h4>
+                    <p class="p-gold">₹40.00 Cr</p>
+                    <button class="btn-detail" onclick="updateVehicle(7)">View Collection</button>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Premium Auto Dealership. All rights reserved.</p>
+    <footer class="footer-royal">
+        <p>&copy; 2026 Premium Auto India. Excellence In Every Drive.</p>
     </footer>
+
+    <script>
+        // Vehicle Array containing distinct sub-image pathways for the slider gallery
+        const vehicleData = [
+            {
+                title: "Pagani Huayra Imola Roadster",
+                price: "₹45.00 Crore",
+                desc: "The pinnacle of roadsters, balancing Indian aspiration with Italian speed.",
+                specs: ["Engine: 6.0L V12", "Power: 850 BHP", "0-100: 2.9s", "Transmission: 7-Speed", "Top Speed: 350 km/h"],
+                images: ["Pagani Huayra Imola Roadster.jpg", "imola_side.jpg", "imola_rear.jpg", "imola_interior.jpg"] 
+            },
+            {
+                title: "Rolls-Royce La Rose Noire Droptail",
+                price: "₹211.00 Crore",
+                desc: "An unmatched masterpiece of coachbuilding, the crown jewel of luxury.",
+                specs: ["Engine: 6.75L V12", "Power: 593 BHP", "Style: Coachbuilt", "Feature: AP Timepiece", "Top Speed: 250 km/h"],
+                images: ["Rolls-Royce La Rose Noire Droptail.jpg", "droptail_side.jpg", "droptail_rear.jpg", "droptail_interior.jpg"]
+            },
+            {
+                title: "Pagani Zonda HP Barchetta",
+                price: "₹140.00 Crore",
+                desc: "A collector's dream, purely mechanical and breathtakingly beautiful.",
+                specs: ["Engine: 7.3L V12", "Power: 789 BHP", "Weight: 1250 kg", "Gearbox: 6-Speed Manual", "Units: Limited 3"],
+                images: ["Pagani Zonda HP Barchetta.jpg", "zonda_side.jpg", "zonda_interior.jpg"]
+            },
+            {
+                title: "Ducati Superleggera V4",
+                price: "₹1.15 Crore",
+                desc: "The only street bike with a full carbon fibre chassis.",
+                specs: ["Engine: 998cc V4", "Power: 234 BHP", "Weight: 152 kg", "Exhaust: Akrapovič", "Frame: Carbon Fibre"],
+                images: ["Ducati Superleggera V4.jpg", "ducati_profile.jpg", "ducati_dash.jpg"]
+            },
+            {
+                title: "Kawasaki Ninja H2R",
+                price: "₹80.00 Lakh",
+                desc: "The supercharged king of the tracks, now available for Indian speedsters.",
+                specs: ["Engine: 998cc Supercharged", "Power: 326 BHP", "Top Speed: 400+ km/h", "Paint: Silver-Mirror", "Wings: Carbon Aero"],
+                images: ["Kawasaki Ninja H2R.jpg", "h2r_side.jpg", "h2r_detail.jpg"]
+            },
+            {
+                title: "Ducati Streetfighter V4 Lamborghini",
+                price: "₹75.00 Lakh",
+                desc: "A fusion of Ducati soul and Lamborghini Huracán STO design.",
+                specs: ["Engine: 1103cc V4", "Power: 208 BHP", "Design: Huracán STO", "Rims: Forged", "Brakes: Brembo Stylema"],
+                images: ["Ducati Streetfighter V4 Lamborghini.jpg", "sf_profile.jpg", "sf_wheel.jpg"]
+            },
+            {
+                title: "2025 Nissan Titan",
+                price: "₹42.00 Lakh",
+                desc: "Dominate the Indian terrain with the ultimate heavy-duty hauler.",
+                specs: ["Engine: 3.0L Diesel", "Tow: 6500 kg", "Drive: 4x4 Lock", "Screen: 14-inch", "Ground Clearance: 245mm"],
+                images: ["2025 Nissan Titan.jpg", "titan_back.jpg", "titan_interior.jpg"]
+            },
+            {
+                title: "Koenigsegg One:1",
+                price: "₹40.00 Cr",
+                desc: "The world's first Megacar featuring an incredible 1:1 power-to-weight ratio.",
+                specs: ["Ratio: 1:1 Power/Weight", "Engine: 5.0L V8", "Power: 1360 BHP", "Top Speed: 440 km/h", "Units: Limited 6"],
+                images: ["Koenigsegg One1.jpg", "one_side.jpg", "one_interior.jpg"]
+            }
+        ];
+
+        function updateVehicle(index) {
+            const v = vehicleData[index];
+            
+            // 1. Text Data Swapping
+            document.getElementById('main-title').innerText = v.title;
+            document.getElementById('main-price').innerText = v.price + "*";
+            document.getElementById('main-desc').innerText = v.desc;
+            
+            // 2. Base View Image Setup
+            const mainImg = document.getElementById('main-image');
+            mainImg.src = v.images[0];
+            mainImg.alt = v.title;
+            
+            // 3. Clear and generate the bottom row of mini thumbnails
+            const subGallery = document.getElementById('sub-image-gallery');
+            subGallery.innerHTML = ''; 
+            
+            v.images.forEach((imgSrc, i) => {
+                const imgThumb = document.createElement('img');
+                imgThumb.src = imgSrc;
+                imgThumb.className = 'thumb-sub-img';
+                
+                // Assign active border color variant to first picture item
+                if(i === 0) imgThumb.classList.add('active');
+                
+                // Event: Hovering over any bottom sub-image swaps the main screen source instantly
+                imgThumb.onmouseover = function() {
+                    mainImg.src = imgSrc;
+                    // Reset active border class across all sub-images
+                    document.querySelectorAll('.thumb-sub-img').forEach(t => t.classList.remove('active'));
+                    imgThumb.classList.add('active');
+                };
+                
+                subGallery.appendChild(imgThumb);
+            });
+            
+            // 4. Update Specification Grid Item nodes
+            const sc = document.getElementById('main-specs');
+            sc.innerHTML = '';
+            v.specs.forEach(s => {
+                const li = document.createElement('li');
+                const p = s.split(':');
+                li.innerHTML = `<strong>${p[0]}:</strong>${p[1]}`;
+                sc.appendChild(li);
+            });
+            
+            // Smoothly scrolls user up to focus on the updated product detail display view
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Run automatically when webpage is loaded to generate the initial asset gallery views
+        window.onload = function() {
+            updateVehicle(0);
+        };
+    </script>
 </body>
-<script src="main.js"></script>
 </html>

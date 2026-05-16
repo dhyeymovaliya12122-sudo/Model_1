@@ -6,7 +6,6 @@
     <title>Premium Auto | Luxury Showroom</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Premium Indian Showroom Grid Layout */
         .car-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -56,18 +55,7 @@
             padding: 1rem;
             text-align: center;
         }
-        /* Indian Premium Button Style */
-        .btn-view {
-            background: #d35400;
-            color: white;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 4px;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.2s;
-        }
+            
         .btn-view:hover {
             background: #b34700;
         }
@@ -80,19 +68,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1><a href="index.html">Premium Auto</a></h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="showroom.html">Showroom</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="cart.html">Cart (0)</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header"></div>
 
     <main>
         <h2>Our Exclusive Showroom</h2>
@@ -110,61 +86,97 @@
         <section class="car-grid">
             
             <div class="car-card">
-                <div class="placeholder-img">Pagani Huayra Imola Roadster Image</div>
+                <img src="Pagani Huayra Imola Roadster.jpg" alt="Pagani Huayra Imola Roadster" class="car-image">
                 <h3>Pagani Huayra Imola Roadster</h3>
                 <p class="price">₹45.00 Crore</p>
                 <a href="details.html" class="btn-view">View Details</a>
             </div>
 
             <div class="car-card">
-                <div class="placeholder-img">Rolls-Royce La Rose Noire Droptail Image</div>
+                <img src="Rolls-Royce La Rose Noire Droptail.jpg" alt="Rolls-Royce La Rose Noire Droptail" class="car-image">
                 <h3>Rolls-Royce La Rose Noire Droptail</h3>
                 <p class="price">₹211.00 Crore</p>
                 <a href="details.html" class="btn-view">View Details</a>
             </div>
 
             <div class="car-card">
-                <div class="placeholder-img">Pagani Zonda HP Barchetta Image</div>
+                <img src="Pagani Zonda HP Barchetta.jpg" alt="Pagani Zonda HP Barchetta" class="car-image">
                 <h3>Pagani Zonda HP Barchetta</h3>
                 <p class="price">₹140.00 Crore</p>
                 <a href="details.html" class="btn-view">View Details</a>
             </div>
 
             <div class="car-card">
-                <div class="placeholder-img">Ducati Superleggera V4 Image</div>
+                <img src="Ducati Superleggera V4.jpg" alt="Ducati Superleggera V4" class="car-image">
                 <h3>Ducati Superleggera V4</h3>
                 <p class="price">₹1.15 Crore</p>
                 <a href="details.html" class="btn-view">View Details</a>
             </div>
 
             <div class="car-card">
-                <div class="placeholder-img">Kawasaki Ninja H2R Image</div>
+                <img src="Kawasaki Ninja H2R.jpg" alt="Kawasaki Ninja H2R" class="car-image">
                 <h3>Kawasaki Ninja H2R</h3>
                 <p class="price">₹80.00 Lakh</p>
                 <a href="details.html" class="btn-view">View Details</a>
             </div>
 
             <div class="car-card">
-                <div class="placeholder-img">Ducati Streetfighter V4 Lamborghini Image</div>
+                <img src="Ducati Streetfighter V4 Lamborghini.jpg" alt="Ducati Streetfighter V4 Lamborghini" class="car-image">
                 <h3>Ducati Streetfighter V4 Lamborghini</h3>
                 <p class="price">₹75.00 Lakh</p>
                 <a href="details.html" class="btn-view">View Details</a>
             </div>
 
             <div class="car-card">
-                <div class="placeholder-img">2025 Titan Hauler 4x4 Image</div>
-                <h3>2025 Titan Hauler 4x4</h3>
+                <img src="2025 Nissan Titan.jpg" alt="2025 Nissan Titan Hauler 4x4" class="car-image">
+                <h3>2025 Nissan Titan Hauler 4x4</h3>
                 <p class="price">₹42.00 Lakh</p>
                 <a href="details.html" class="btn-view">View Details</a>
             </div>
 
             <div class="car-card">
-                <div class="placeholder-img">2025 Metro Lite Electric Image</div>
-                <h3>2025 Metro Lite Electric</h3>
+                <img src="Koenigsegg One1.jpg" alt="Koenigsegg One:1" class="car-image">
+                <h3>Koenigsegg One:1</h3>
                 <p class="price">₹18.50 Lakh</p>
                 <a href="details.html" class="btn-view">View Details</a>
             </div>
 
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Discover the most common luxury showroom questions so you can reserve with confidence.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h3>How can I reserve a vehicle?</h3>
+                    <p>Select the vehicle, add it to cart, and complete payment to confirm your reservation.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Do I need to pay a deposit?</h3>
+                    <p>Yes, a reservation fee is required to hold the vehicle while paperwork is prepared.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Can I schedule a private viewing?</h3>
+                    <p>Absolutely — contact our showroom team and we will arrange a curated VIP appointment.</p>
+                </div>
+                <div class="faq-card faq-hidden">
+                    <h3>What payment methods do you accept?</h3>
+                    <p>We accept credit cards, bank transfers, UPI, and select premium financing options.</p>
+                </div>
+                <div class="faq-card faq-hidden">
+                    <h3>Is delivery available across India?</h3>
+                    <p>Yes, insured delivery is available nationwide for premium vehicles.</p>
+                </div>
+                <div class="faq-card faq-hidden">
+                    <h3>How do I contact support after purchase?</h3>
+                    <p>Use the contact page or email our support team for dedicated after-sales assistance.</p>
+                </div>
+            </div>
+            <div class="faq-actions">
+                <button id="faq-load-more" class="btn btn-load-more">Load More FAQs</button>
+            </div>
         </section>
     </main>
 
